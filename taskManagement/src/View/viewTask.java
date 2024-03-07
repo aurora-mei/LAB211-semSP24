@@ -63,7 +63,12 @@ public class viewTask {
         Stream.generate(() -> c).limit(5).forEach(System.out::print);
         System.out.println();
     }
-
+    public void displayTitleTasks(String msg, char c,int lim) {
+        Stream.generate(() -> c).limit(lim).forEach(System.out::print);
+        System.out.print(" " + msg + " ");
+        Stream.generate(() -> c).limit(lim).forEach(System.out::print);
+        System.out.println();
+    }
     public void displayResultFunction(int res, String functionName) {
         if (res > 0) {
             System.out.println(functionName + " task " + res + " successfull!");
@@ -77,7 +82,7 @@ public class viewTask {
             System.out.println("List task is empty. There is nothing to display!");
             return;
         }
-        displayTitle("Tasks", '-');
+        displayTitleTasks("Tasks", '-',42);
         System.out.println(String.format("%-8s%-15s%-15s%-15s%-15s%-15s%s", "ID", "Name", "Date", "Task Type","Time", "Asignee", "Reviewer"));
         for (Task con : list) {
             System.out.println(con.toString());
